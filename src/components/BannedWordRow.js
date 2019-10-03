@@ -13,7 +13,7 @@ export default function BannedWordRow(props) {
   };
 
   return (
-    <TableRow key={bannedWord.rowid}>
+    <TableRow>
       <TableCell component="th" scope="row">
         {bannedWord.rowid}
       </TableCell>

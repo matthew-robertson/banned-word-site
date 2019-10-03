@@ -6,6 +6,7 @@ import TextField from '@material-ui/core/TextField';
 import BannedWordTable from '../../components/BannedWordTable'
 
 export default function AdminServerPage(props) {
+  const [needsUpdate, setNeedsUpdate] = React.useState(false)
   const serverId = props.match.params.server_id
   const initialServerState = {
   	server: {},
@@ -22,11 +23,11 @@ export default function AdminServerPage(props) {
     const getServer = async () => {
      	const { data } = await axios.get('http://127.0.0.1:5000/v1/servers/' + serverId)
 	    setServer(data)
-      console.log(data)
+      setNeedsUpdate(false)
     }
 
     getServer()
-  }, [])
+  }, [needsUpdate])
 
   return server.loading ? (
     <div>Loading...</div>
@@ -38,7 +39,7 @@ export default function AdminServerPage(props) {
       </div>
       <BannedWordTable 
         bannedWords={server.banned_words} 
-        onWordClick={(banId, newWord) => {editWord(serverId, banId, newWord)}} />
+        onWordClick={(banId, newWord) => {editWord(serverId, banId, newWord).then(() => {setNeedsUpdate(true)})}} />
       <div>
         <TextField
         id="word-to-add"
@@ -48,7 +49,7 @@ export default function AdminServerPage(props) {
         margin="normal"
         variant="outlined"
       />
-        <Button variant="contained" color="primary" onClick={()=>{addWord(serverId, toAdd)}}>
+        <Button variant="contained" color="primary" onClick={()=>{addWord(serverId, toAdd).then(() => {setNeedsUpdate(true)})}}>
           Add Word
         </Button>
       </div>

@@ -6,7 +6,7 @@ export default function LandingPage() {
     <div className="container">
       <h1>Home Page</h1>
       <p>
-        <Link to="/taniarascia">taniarascia</Link> on GitHub.
+        <Link to="/admin">Admin Panel</Link>
       </p>
     </div>
   )

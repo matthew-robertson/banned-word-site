@@ -6,7 +6,7 @@ export default function AdminRootPage() {
     <div className="container">
       <h1>Admin Panel</h1>
       <p>
-        <Link to="servers">See all servers</Link>
+        <Link to={"/admin/servers"}>Manage this server</Link>
       </p>
     </div>
   )
