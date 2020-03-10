@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { AuthService } from '../services/AuthService';
+import { AuthService } from '../services/AuthService'
+import Header from '../components/Header'
 
 export default function LandingPage() {
 	const [auth, setAuth] = useState(new AuthService())

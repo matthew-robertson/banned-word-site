@@ -1,5 +1,4 @@
-import axios from 'axios'
-import React, { useEffect } from 'react'
+import React, { useState } from 'react'
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
 import TextField from '@material-ui/core/TextField';
@@ -7,7 +6,7 @@ import TextField from '@material-ui/core/TextField';
 export default function BannedWordRow(props) {
   const bannedWord = props.bannedWord
 
-  const [toEdit, setToEdit] = React.useState(bannedWord.banned_word);
+  const [toEdit, setToEdit] = useState(bannedWord.banned_word);
   const handleChange = () => event => {
     setToEdit(event.target.value);
   };
