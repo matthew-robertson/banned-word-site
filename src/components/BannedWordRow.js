@@ -13,9 +13,7 @@ export default function BannedWordRow(props) {
 
   return (
     <TableRow>
-      <TableCell component="th" scope="row">
-        {bannedWord.rowid}
-      </TableCell>
+      <TableCell alight="right" onClick={()=> {props.onWordDelete(bannedWord.rowid)}}>X</TableCell>
       <TableCell align="right">
         <TextField
         id={"banned_word"+bannedWord.rowid}

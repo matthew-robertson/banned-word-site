@@ -34,16 +34,19 @@ export default function BannedWordTable(props) {
         <Table className={classes.table} size="small">
           <TableHead>
             <TableRow>
-              <TableCell>ID</TableCell>
+              <TableCell align="right">Delete</TableCell>
               <TableCell align="right">Banned Word</TableCell>
-              <TableCell align="right">Update Banned Word Button</TableCell>
-              <TableCell align="right">Infracted At</TableCell>
-              <TableCell align="right">Called Out At</TableCell>
+              <TableCell align="right">Update</TableCell>
+              <TableCell align="right">Last Infracted At</TableCell>
+              <TableCell align="right">Last Called Out At</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {bannedWords.map(banned_word => (
-              <BannedWordRow key={banned_word.rowid} bannedWord={banned_word} onWordClick={props.onWordClick} />
+              <BannedWordRow key={banned_word.rowid}
+                bannedWord={banned_word}
+                onWordDelete={props.onWordDelete}
+                onWordClick={props.onWordClick} />
             ))}
           </TableBody>
         </Table>
